@@ -6,5 +6,14 @@ const {
 } = Ember;
 
 export default Controller.extend({
-  data
+  data,
+
+  renderMessage: Ember.computed('renderSpeed', function() {
+    let speed = this.get('renderSpeed');
+    if (speed) {
+      return speed + 'ms';
+    } else {
+      return "(not yet rendered)";
+    }
+  })
 });

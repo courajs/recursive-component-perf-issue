@@ -1,4 +1,9 @@
-Rendered in: {{renderSpeed}}ms
-{{#render-timer onRender=(action (mut renderSpeed))}}
-  {{display-value key="main" value=data}}
-{{/render-timer}}
+<p>Last render took: {{renderMessage}}</p>
+{{#if rendered}}
+  <button {{action (mut rendered) false}}>Reset</button>
+  {{#render-timer onRender=(action (mut renderSpeed))}}
+    {{display-value key="main" value=data}}
+  {{/render-timer}}
+{{else}}
+  <button {{action (mut rendered) true}}>Go</button>
+{{/if}}
