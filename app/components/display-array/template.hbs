@@ -1,0 +1,7 @@
+{{display-value key=key level=level toggleHide=toggleHide}}
+
+{{#each value as |arrayVal|}}
+  {{#each-in arrayVal as |key value|}}
+    {{display-value key=key value=value level=(add level 1) toggleHide=toggleHide}}
+  {{/each-in}}
+{{/each}}
