@@ -1,1 +1,18 @@
-HEY!
+{{#if (is-object value)}}
+  {{display-object key=key value=value level=level toggleHide=toggleHide}}
+{{else if (is-array value)}}
+  {{display-array key=key value=value level=level toggleHide=toggleHide}}
+{{else}}
+  <div class="row" >
+    {{#if (not value)}}
+      {{#if (eq level 0)}}
+        <div class="nested-{{level}} cell key toggle-bar" onclick={{action toggleHide}}>{{key}}</div>
+      {{else}}
+        <div class="nested-{{level}} cell key">{{key}}</div>
+      {{/if}}
+    {{else}}
+    <div class="nested-{{level}} cell key">{{key}}</div>
+    <div class="cell val"><pre class="pre">{{value}}</pre></div>
+    {{/if}}
+  </div>
+{{/if}}
