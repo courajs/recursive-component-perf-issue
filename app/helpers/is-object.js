@@ -1,8 +1,12 @@
 import Ember from 'ember';
-import _ from 'lodash';
+
+function _isObject(value) {
+  var type = typeof value;
+  return value != null && (type == 'object' || type == 'function');
+}
 
 export function isObject([value]) {
-  return _.isObject(value) && !_.isArray(value);
+  return _isObject(value) && !Array.isArray(value);
 }
 
 export default Ember.Helper.helper(isObject);
