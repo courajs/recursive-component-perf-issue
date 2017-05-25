@@ -1,7 +1,7 @@
-{{display-value key=key level=level toggleHide=toggleHide}}
+{{display-value key=key level=level}}
 
 {{#each value as |arrayVal|}}
   {{#each-in arrayVal as |key value|}}
-    {{display-value key=key value=value level=(add level 1) toggleHide=toggleHide}}
+    {{display-value key=key value=value level=(add level 1)}}
   {{/each-in}}
 {{/each}}

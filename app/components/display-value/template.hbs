@@ -1,12 +1,12 @@
 {{#if (is-object value)}}
-  {{display-object key=key value=value level=level toggleHide=toggleHide}}
+  {{display-object key=key value=value level=level}}
 {{else if (is-array value)}}
-  {{display-array key=key value=value level=level toggleHide=toggleHide}}
+  {{display-array key=key value=value level=level}}
 {{else}}
   <div class="row" >
     {{#if (not value)}}
       {{#if (eq level 0)}}
-        <div class="nested-{{level}} cell key toggle-bar" onclick={{action toggleHide}}>{{key}}</div>
+        <div class="nested-{{level}} cell key toggle-bar">{{key}}</div>
       {{else}}
         <div class="nested-{{level}} cell key">{{key}}</div>
       {{/if}}
